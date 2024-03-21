@@ -12,5 +12,7 @@ jobs:
         with:
           inso-version: 3.5.0
       - run: inso --version
+      - name: Checkout branch
+        uses: actions/checkout@v1
       - name: Run test suites
         run: inso run test "DineazyTestDocument" --env dev --ci

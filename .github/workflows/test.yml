@@ -10,9 +10,11 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v1
+      - name: Set up inso
       - uses: kong/setup-inso@v1
         with:
           inso-version: 3.5.0
+      - name: Verify Inso version    
       - run: inso --version
       - name: Run test suites
         run: inso run test "DineazyTestDocument" --env dev --ci

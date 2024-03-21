@@ -18,7 +18,6 @@ jobs:
       - name: Setup Inso CLI
         uses: kong/setup-inso@v1
         with:
-          runs-on: kong/inso:latest
-
+          inso-version: 8.6.1
       - name: Run Test Suites
         run: inso run test "DineazyTestDocument" --env dev --ci

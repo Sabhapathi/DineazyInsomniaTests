@@ -15,4 +15,4 @@ jobs:
           inso-version: 3.5.0
       - run: inso --version
       - name: Run test suites
-        run: inso run test --file /home/runner/work/DineazyInsomniaTests/DineazyInsomniaTests/InsomniaCollection.json --env dev --ci
+        run: inso run test

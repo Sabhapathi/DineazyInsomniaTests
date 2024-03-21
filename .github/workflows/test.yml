@@ -1,26 +1,13 @@
 # .github/workflows/test.yml
-name: Test
-
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-  workflow_dispatch:
-
+    branches:
+      - master
 jobs:
-  Linux:
-    name: Validate API spec
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v1
       - uses: kong/setup-inso@v1
         with:
           inso-version: 3.5.0
-          compression: gzip
       - run: inso --version
-        id: inso_version
-      - run: echo '${{ toJson(steps.inso_version.outputs) }}'      
-      - name: Run test suites
-        run: inso run test "DineazyTestDocument" --env dev --ci

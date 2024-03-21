@@ -19,4 +19,4 @@ jobs:
       - name: list files
         run: ls
       - name: run tests
-        run: inso run test
+        run: inso run test --src /home/runner/work/DineazyInsomniaTests/DineazyInsomniaTests/InsomniaCollection.json --env dev --ci

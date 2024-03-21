@@ -1,4 +1,5 @@
-name: Inso CLI Tests
+# .github/workflows/test.yml
+name: Test
 
 on:
   push:
@@ -8,14 +9,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Linux:
+    name: Validate API spec
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Setup Inso CLI
-        uses: kong/setup-inso@v1
+      - name: Checkout branch
+        uses: actions/checkout@v1
+      - uses: kong/setup-inso@v1
         with:
-          inso-version: 8.6.1
-      - name: Run Test Suites
-        run: inso run test "DineazyTestDocument" --env dev --ci
+          inso-version: 2.4.0
+      - name: Lint
+        run: inso lint spec "Designer Demo" --ci
+      - name: Run test suites
+        run: inso run test "Designer Demo" --env UnitTest --ci
+      - name: Generate declarative config
+        run: inso generate config "Designer Demo" --type declarative --ci

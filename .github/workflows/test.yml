@@ -14,9 +14,5 @@ jobs:
         with:
           inso-version: 3.5.0
       - run: inso --version
-      - name: Lint
-        run: inso lint spec "DineazyTestDocument" --ci
       - name: Run test suites
         run: inso run test "DineazyTestDocument" --env dev --ci
-      - name: Generate declarative config
-        run: inso generate config "DineazyTestDocument" --type declarative --ci

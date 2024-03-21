@@ -17,4 +17,4 @@ jobs:
       - name: Verify Inso version    
       - run: inso --version
       - name: Run test suites
-        run: inso run test "DineazyTestDocument" --env dev --ci
+        run: inso run test --file /home/runner/work/DineazyInsomniaTests/DineazyInsomniaTests/InsomniaCollection.json --env dev --ci

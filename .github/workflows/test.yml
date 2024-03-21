@@ -14,5 +14,9 @@ jobs:
         with:
           inso-version: 3.5.0
       - run: inso --version
-      - name: Run test suites
+      - name: CD
+        run: cd /home/runner/work/DineazyInsomniaTests/DineazyInsomniaTests
+      - name: list files
+        run: ls
+      - name: run tests
         run: inso run test
